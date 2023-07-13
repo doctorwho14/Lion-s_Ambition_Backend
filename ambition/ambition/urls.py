@@ -17,17 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.views.decorators.csrf import csrf_exempt
 
-from store import views
+from store.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('email/validation', csrf_exempt(views.EmailValidationView.as_view())),
-    path('signup', csrf_exempt(views.UserCreateView.as_view())),
-    path('login', csrf_exempt(views.UserLoginView.as_view())),
-    path('logout', csrf_exempt(views.UserLogoutView.as_view())),
-    path('order', csrf_exempt(views.OrderView.as_view())),
-    path('order/<int:order_id>', csrf_exempt(views.OrderIdView.as_view())),
-    path('product', csrf_exempt(views.ProductView.as_view())),
-    path('product/<int:product_id>', csrf_exempt(views.ProductIdView.as_view())),
-    path('category', csrf_exempt(views.CategoryView.as_view())),
+    path('api/v1/email/validation', csrf_exempt(EmailValidationView.as_view())),
+    path('api/v1/signup', csrf_exempt(UserCreateView.as_view())),
+    path('api/v1/login', csrf_exempt(UserLoginView.as_view())),
+    path('api/v1/logout', csrf_exempt(UserLogoutView.as_view())),
+    path('api/v1/order', csrf_exempt(OrderView.as_view())),
+    path('api/v1/order/<int:order_id>', csrf_exempt(OrderIdView.as_view())),
+    path('api/v1/product', csrf_exempt(ProductView.as_view())),
+    path('api/v1/product/<int:product_id>', csrf_exempt(ProductIdView.as_view())),
+    path('api/v1/category', csrf_exempt(CategoryView.as_view())),
 ]
